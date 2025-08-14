@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Bank UI (No JS)</title>
+  <style>
+    body {
+      background: #0b1d3a;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .bank-ui {
+      background: #112e51;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      width: 350px;
+      text-align: center;
+    }
+
+    .bank-ui h1 {
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+
+    .balance {
+      font-size: 2rem;
+      margin: 1rem 0;
+      color: #00ffcc;
+    }
+
+    .toggles {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .toggles input[type="radio"] {
+      display: none;
+    }
+
+    .toggles label {
+      background: #1e3a5f;
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggles input[type="radio"]:checked + label {
+      background: #00bfa5;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .amount-display-selection {
+      background: #1e3a5f;
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .amount-display-selection input[type="number"] {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      background: #0f2a4b;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .amount-display-selection input[type="number"]::placeholder {
+      color: #aaa;
+    }
+
+    /* Disable scroll wheel on input type number */
+    .amount-display-selection input[type="number"]::-webkit-outer-spin-button,
+    .amount-display-selection input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .amount-display-selection input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    .amt {
+      display: none;
+    }
+
+    #amt-100:checked ~ .amount-display-selection #amt-val-100,
+    #amt-500:checked ~ .amount-display-selection #amt-val-500,
+    #amt-1000:checked ~ .amount-display-selection #amt-val-1000 {
+      display: inline;
+    }
+
+    .actions {
+      margin-top: 1rem;
+    }
+
+    .actions button {
+      padding: 0.5rem 1.2rem;
+      border: none;
+      border-radius: 10px;
+      margin: 0 0.5rem;
+      cursor: default;
+      
+    }
+
+    .note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    .btn {
+    width: 140px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+    .btn-deposit {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .btn-deposit:hover {
+    background-color: #218838;
+    
+  }
+
+  .btn-withdraw {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  .btn-withdraw:hover {
+    background-color: #c82333;
+    
+  }
+  </style>
+</head>
+<body>
+  <div class="bank-ui">
+    <h1>My Bank</h1>
+    <div class="balance">Balance: ₹0.00</div>
+
+    <form class="amount-form">
+      <div class="toggles">
+        <input type="radio" name="amount" id="amt-100" checked>
+        <label for="amt-100">₹100</label>
+
+        <input type="radio" name="amount" id="amt-500">
+        <label for="amt-500">₹500</label>
+
+        <input type="radio" name="amount" id="amt-1000">
+        <label for="amt-1000">₹1000</label>
+      </div>
+
+      <div class="amount-display-selection" id="amount">
+        <input 
+          type="number" 
+          inputmode="numeric" 
+          min="0" 
+          step="1" 
+          placeholder="Enter custom amount"
+          onwheel="this.blur();" 
+        />
+      </div>
+
+      <div class ="action">
+        <button class="btn btn-deposit">Deposit</button>
+<button class="btn btn-withdraw">Withdraw</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+ ui banking
